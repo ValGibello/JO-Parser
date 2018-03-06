@@ -2,30 +2,43 @@
 
 from lxml import html
 import requests
+import re
 
-print("Téléchargement...")
+#from pprint import pprint
+
+print("Téléchargement..." + "\n")
 
 page = requests.get('https://www.legifrance.gouv.fr/affichJO.do?idJO=')
 contenu = html.fromstring(page.content)
 
-lien_sommaire = contenu.xpath('//a[@class="lienSommaire"]/text()')
-### print(lien_sommaire)
+liens_sommaire = contenu.xpath('//a[@class="lienSommaire"]/text()')
+### print(liens_sommaire)
 
-nb_lignes = str(len(lien_sommaire))
+nb_lignes = str(len(liens_sommaire))
 
-print("Il y a " + nb_lignes + " entrées dans le JO du jour.")
-print("Détection...")
+print("Il y a " + nb_lignes + " entrées dans le JO du jour." + "\n")
+print("Détection..." + "\n")
 
 ### MODULE 2 - PARSING ###
 
-keywords = ['traitement', 'données']
-nb_traitements = 0
+keywords = ['traitement', 'données', 'création']
+keywords_re = re.compile("|".join(keywords))
 
-for each in lien_sommaire:
-    if keywords in lien_sommaire:
+nb_traitements = int()
+contenu_utile = []
+
+for item in liens_sommaire:
+    if keywords_re.search(str(item)):
         nb_traitements += 1
-        print("Un traitement publié au JO.")
-    else:
-        print("Pas de traitement.")
+        contenu_utile.append(item)
+        print("Un traitement publié au JO." + "\n")
+    
+
+print("Il y a " + str(nb_traitements) + " entrée(s) intéressantes." + "\n" + "************************************************************" + "\n" + "\n")
 
 ### MODULE 3 - CREATING REPORT ###
+print("************************************************************" + "\n" + "Génération d'un rapport..." + "\n" + "************************************************************" + "\n")
+
+
+print(*contenu_utile, sep="\n \n")
+
