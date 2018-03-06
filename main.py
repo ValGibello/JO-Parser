@@ -28,7 +28,7 @@ print("Détection..." + "\n")
 
 ### MODULE 2 - PARSING ###
 
-keywords = ['traitement', 'données', 'création']
+keywords = ['traitement', 'données']
 keywords_re = re.compile("|".join(keywords))
 
 nb_traitements = int()
