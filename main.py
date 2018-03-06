@@ -3,10 +3,17 @@
 from lxml import html
 import requests
 import re
+import datetime
+import telegram_send
+
+adresse_jo=["https://www.legifrance.gouv.fr/affichJO.do?idJO="]
+jour = datetime.datetime.now()
+
+print("Nous sommes le " + (jour.strftime("%d/%m/%Y")))
 
 #from pprint import pprint
 
-print("Téléchargement..." + "\n")
+print("Connection à Légifrance" + "\n" + "Téléchargement du JO..." + "\n")
 
 page = requests.get('https://www.legifrance.gouv.fr/affichJO.do?idJO=')
 contenu = html.fromstring(page.content)
@@ -41,4 +48,7 @@ print("************************************************************" + "\n" + "G
 
 
 print(*contenu_utile, sep="\n \n")
+telegram_send.send(["Bonjour ! Voici la sélection Journal Officiel du jour."])
+telegram_send.send(messages=contenu_utile)
+telegram_send.send(messages=adresse_jo, parse_mode="text")
 
