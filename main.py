@@ -4,7 +4,7 @@ import re
 import datetime
 import telegram_send
 
-### Récupération du JO ###
+### RÉCUPÉRATION DU JO ###
 
 adresse_jo=["https://www.legifrance.gouv.fr/affichJO.do?idJO="]
 jour = datetime.datetime.now()
@@ -36,7 +36,7 @@ for item in liens_sommaire:
         contenu_utile.append(item)
         print("Un traitement intéressant publié au JO." + "\n")
     
-### GENERATION D'UN RAPPORT ET DIFFUSION ###
+### GÉNÉRATION D'UN RAPPORT ET DIFFUSION ###
 
 if len(contenu_utile)>0:
     print("Il y a " + str(nb_traitements) + " entrée(s) intéressante(s)." + "\n" + "************************************************************" + "\n" + "\n")
