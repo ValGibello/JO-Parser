@@ -33,6 +33,7 @@ Après quelques essais, les fonctionnalités de base sont opérationnelles et le
 
 # Fonctionnalités à ajouter
 
+* Faire en sorte que les titres des publications intéressantes soient envoyées avec l'URL correspondante (tuple? set?).
 * Rajouter un prompt afin qu'au premier lancement, le script demande quels mots-clés doivent être utilisés.
 * Ajouter un module d'envoi de mail comme alternative à Telegram.
 * Figer le code et transformer le script en exécutable avec PyInstaller.
