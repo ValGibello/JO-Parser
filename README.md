@@ -25,7 +25,7 @@ La première difficulté a été de trouver comment obtenir de manière fiable l
 
 Il se trouve que légifrance propose toutefois d'accéder aux trois derniers JO (https://www.legifrance.gouv.fr/initRechJO.do), par des liens avec suffixe .do, ce qui indique que légifrance s'appuie sur Struts et des servlets java. Et donc il suffit de prendre l'URL suivante : https://www.legifrance.gouv.fr/affichJO.do?idJO=. Celle-ci est en principe suivie de l'ID d'un JO spécifique mais cela n'est pas nécessaire et laisser "idJO" sans paramètre renvoie directement au dernier JO publié. L'adresse peut donc être hardcodée dans le script, en principe elle ne devrait pas bouger sauf refonte de légifrance.
 
-L'étape suivante a été de trouver comment récupérer la source de la page, la traiter pour ne garder en mémoire qu'un arbre HTML propre, et récupérer tous les intitulés des publications. Une combinaison des modules requets, lxml et re fait cela très bien (cf. la section récpuration et parsing du code).
+L'étape suivante a été de trouver comment récupérer la source de la page, la traiter pour ne garder en mémoire qu'un arbre HTML propre, et récupérer tous les intitulés des publications. Une combinaison des modules requests, lxml et re fait cela très bien (cf. la section récupération et parsing du code).
 
 Plutôt que d'envoyer un mail, l'utilisation du module telegram-send permet de connecter le script à un bot telegram, lequel se charge d'envoyer le rapport final quotidiennement sur un groupe ou une chaîne telegram (ce qui permet à plusieurs personnes de profiter du rapport sans avoir à faire tourner le script chez eux).
 
