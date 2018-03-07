@@ -11,7 +11,7 @@ Il est nécessaire d'avoir installé et configuré le module telegram-send (http
 
 ## Mise en place
 
-1. Modifiez la liste "keywords =" pour y inclure les mots-clés ou phrases qui vous intéressent, en respectant le format suivant : keywords ['mot-clé A', 'mot-clé 2', "mot-clé 3'].
+1. Modifiez la liste "keywords =" pour y inclure les mots-clés ou phrases qui vous intéressent, en respectant le format suivant : keywords = ['mot-clé A', 'mot-clé 2', "mot-clé 3'].
 
 2. Vérifiez la bonne exécution du script.
 
