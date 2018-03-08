@@ -47,5 +47,8 @@ if len(contenu_utile)>0:
     telegram_send.send(messages=adresse_jo, parse_mode="text")
 else:
     print("Aucun traitement intéressant publié au JO. Essayez de modifier les règles de tri.")
+    telegram_send.send(["Bonjour ! Le Journal Officiel du jour ne contient pas de publications intéressantes. Essayez de modifier les règles de tri"])
+    telegram_send.send(messages=adresse_jo, parse_mode="text")
+
 
 
