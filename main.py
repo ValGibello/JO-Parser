@@ -27,7 +27,10 @@ print("Détection..." + "\n")
 nb_traitements = int()
 contenu_utile = []
 
+### MOTS CLÉS ###
 keywords = ["création d'un traitement", "données"]
+#################
+
 keywords_re = re.compile("|".join(keywords))
 
 for item in liens_sommaire:
